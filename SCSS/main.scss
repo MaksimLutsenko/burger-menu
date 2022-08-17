@@ -1,0 +1,132 @@
+//-----reset style-----
+// html{
+// 	overflow-x: hidden;
+// }
+body{
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	// height: 100vh;
+	
+}
+a{
+	text-decoration: none;
+	color: #000;
+}
+img, svg{max-width: 100%;}
+//-----normalise style-------
+.btn{
+	border: none;
+	background: none;
+	cursor: pointer;
+}
+//--------style page--------
+.call, .burg, .burg-menu{display: none;}
+
+.header{
+	padding: 22px 0;
+	display: flex;
+	justify-content: space-around;
+	&-item{
+		display: flex;
+		align-items: center;
+		font-size: 14px;
+		&:last-child{gap: 24px;}
+	}
+	.nav{
+		display: flex;
+		align-items: center;
+		gap: 32px;
+		&-item:hover{
+			border-bottom: 1px solid;
+			transform: translateY(1px);
+		}
+	}
+	.tel{font-size: 14px;}
+	&-btn{
+		padding: 8px 24px;
+		color: #E97522;
+		font-size: 12px; // tablet:11
+		border: 2px solid #E97522;
+		border-radius: 10px;
+		transition: .3s;
+		&:hover{
+			background-color: #E97522;
+			color: #fff;
+		}
+		&:active{transform: scale(0.95);}
+	}
+}
+
+//-------media-qwerys-----
+//--tablet--
+@media screen and (max-width:1024px){
+	.header{
+		&-item{
+			font-size: 12px;
+			&:last-child{
+				align-items: end;
+				flex-direction: column-reverse;
+				gap: 8px;
+			}
+		}
+		.nav{gap: 24px;}
+		.logo{min-width: 113px;}
+	}
+}
+//--mobail--
+@media screen and(max-width:768px){
+	.header{
+		padding: 8px 16px;
+		justify-content: space-between;
+		position: relative;
+		&-item{
+			&:nth-child(2){display: none;}
+			&:last-child{
+				gap: 16px;
+				align-items: center;
+				flex-direction: row;
+			}
+		}
+		&-btn{display: none;}
+		.call, .burg{display: block;}
+		.burg-menu{
+			box-sizing: border-box;
+			margin: 0;
+			width: 100vw;
+			height: 100vh;
+			position: absolute;
+			top: 100%;
+			right: 0;
+			// padding: 16px;
+			background-color: #0F0F0FB2;
+			.nav{
+				margin: 16px;
+				font-size: 14px;
+				display: flex;
+				align-items: end;
+				justify-content: flex-end;
+				flex-direction: column;
+				gap: 16px;
+				&-item{color: #fff;}
+			}
+			display: block;
+			width: 0;
+			transition: all .3s ease;
+			&.show{
+				width: 100vw;
+			}
+		}
+		.logo{
+			min-width: 75px;
+			max-width: 90px;
+		}
+		@media screen and (max-width:500px){
+			.header-item:last-child{gap: 8px;}
+			.logo{
+				min-width: 63px;
+				max-width: 75px;
+			}
+		}
+	}
+}
